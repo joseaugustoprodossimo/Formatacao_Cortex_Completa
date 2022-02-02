@@ -3,3 +3,5 @@ git config --global user.name "Jose Augusto"
 git config --global user.email "j.prodossimo@live.com"
 
 git remote add origin url
+
+teste
