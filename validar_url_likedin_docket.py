@@ -40,10 +40,10 @@ def validar_url_linkedin(df):
 
 if(__name__ == "__main__"):
 
-  pasta_import = "C:\\Projetos\\Python\\Validador_Linkedin\\"
-  arquivo_import = "Output_Contatos_Empresas_Linkedin_Apollo" + ".xlsx"
+  pasta_import = "caminho"
+  arquivo_import = "arquivo"
 
-  df = pd.read_excel(pasta_import + arquivo_import)
+  df = pd.read_csv(pasta_import + arquivo_import + ".csv")
 
   validar_url_linkedin(df)
 

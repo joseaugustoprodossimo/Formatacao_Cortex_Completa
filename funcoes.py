@@ -22,3 +22,16 @@ def Formatar_sites(item):
     else:
         ""
 
+def Retornar_Cargo(item):
+
+    item = str(item)
+
+    item = item.split('-')
+
+    if(len(item) == 2):
+        return item[1]
+    elif(len(item) == 3):
+        return item[1] + ' ' + item[2]
+    else:
+        return ""
+
