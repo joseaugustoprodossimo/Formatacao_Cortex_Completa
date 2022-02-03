@@ -10,16 +10,27 @@ def apollo_contatos(df):
     df['Twitter Url'] = df['Twitter Url'].apply(funcoes.Formatar_sites)
     df['Company Linkedin Url'] = df['Company Linkedin Url'].apply(funcoes.Formatar_sites)
     df['CARGO B2B'] = df['CARGO B2B'].str.title()
+    
+    for i in df.index:
+      if df['PRIMEIRO NOME'][i] == "":
+        df['PRIMEIRO NOME'][i] = df['ULTIMO NOME'][i]
+        df['ULTIMO NOME'][i] = ""
+
     return df
 
 if(__name__ == "__main__"):
 
-  pasta_import = "caminho"
-  arquivo_import = "arquivo"
+  pasta_import = "C:\\Projetos\\Python\\Apollo\\"
+  arquivo_import = "apollo-contacts-export"
 
   df = pd.read_csv(pasta_import + arquivo_import + ".csv")
 
-  apollo_contatos(df)
+  df = apollo_contatos(df)
 
-  arquivo_export = 'Output ' + arquivo_import + '.xlsx'
-  df.to_excel(pasta_import + arquivo_export, index = False)
+  writer = pd.ExcelWriter(pasta_import + 'Output_' + arquivo_import + '.xlsx', engine='xlsxwriter',options={'strings_to_urls': False})
+  df.to_excel(writer)
+  writer.close()
+  print('Finalizado')
+
+  #arquivo_export = 'Output ' + arquivo_import + '.xlsx'
+  #df.to_excel(pasta_import + arquivo_export, index = False)
