@@ -10,6 +10,7 @@ import formatar_ddplus_linkedin_empresas
 import formatar_ddplus_receita_federal_empresas
 import formatar_ddplus_receita_federal_socios
 import formatar_e_juntar_contatos_apollo_ddplus
+import funcoes
 
 caminho = 'E:\\Python\\Juntar Dados Cadastrais e Contatos\\'
 DadosCadastrais = 'BR2 - Enriquecimento Cliente - DB - Cortex'
