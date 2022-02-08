@@ -37,7 +37,7 @@ def juntar_output_br2_info_emp_dominio_output_contatos(df, df_socios, df_contato
 
     for i in df_socios_buscar_email.index:
         if len(df_socios_buscar_email['PRIMEIRO NOME'][i]) > 0 and len(df_socios_buscar_email['ULTIMO NOME'][i]) > 0:
-            df_socios_buscar_email['EMAIL'][i] = capturar_email_primeleads.consulta_email(df_socios_buscar_email['PRIMEIRO NOME'][i], df_socios_buscar_email['ULTIMO NOME'][i], df_socios_buscar_email['Website'][i])
+            df_socios_buscar_email['EMAIL'][i] = capturar_email_primeleads.consulta_email(df_socios_buscar_email['PRIMEIRO NOME'][i].title(), df_socios_buscar_email['ULTIMO NOME'][i].title(), df_socios_buscar_email['Website'][i].lower())
 
     df_socios_buscar_email['Chave'] = df_socios_buscar_email['CNPJ'] + df_socios_buscar_email['PRIMEIRO NOME'] + df_socios_buscar_email['ULTIMO NOME']
 
