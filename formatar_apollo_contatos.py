@@ -21,7 +21,7 @@ def apollo_contatos(df):
 if(__name__ == "__main__"):
 
   pasta_import = "C:\\Projetos\\Python\\Apollo\\"
-  arquivo_import = "Output_Total"
+  arquivo_import = 'apollo-contacts-export' #"Output_Total"
 
   df = pd.read_csv(pasta_import + arquivo_import + ".csv", converters={'First Name': lambda x: str(x),
                                                                      'Last Name': lambda x: str(x),

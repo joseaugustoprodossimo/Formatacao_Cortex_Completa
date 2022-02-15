@@ -31,13 +31,14 @@ if __name__ == '__main__':
 
     df = pd.read_excel(pasta_import + arquivo_import + ".xlsx")
 
-    df['PRIMEIRO NOME'] = ''
-    df['ULTIMO NOME'] = ''
+    #df['PRIMEIRO NOME'] = ''
+    #df['ULTIMO NOME'] = ''
 
-    df['PRIMEIRO NOME'] = df['NOME'].str.split(' ', expand=True).get(0)
-    df['ULTIMO NOME'] = df['NOME'].apply(funcoes.Retornar_Ultimo_Nome)
+    #df['PRIMEIRO NOME'] = df['NOME'].str.split(' ', expand=True).get(0)
+    #df['ULTIMO NOME'] = df['NOME'].apply(funcoes.Retornar_Ultimo_Nome)
     df['EMAIL'] = ''
-    df['Qualificação sócio'] = df['Qualificação sócio'].apply(funcoes.Retornar_Cargo)
+    #df['Qualificação sócio'] = df['Qualificação sócio'].apply(funcoes.Retornar_Cargo)
+    #df['qualificacao'] = df['qualificacao'].str.title()
 
     for i in df.index:
         if len(df['PRIMEIRO NOME'][i]) > 0 and len(df['ULTIMO NOME'][i]) > 0:
