@@ -40,8 +40,21 @@ if __name__ == '__main__':
     #df['Qualificação sócio'] = df['Qualificação sócio'].apply(funcoes.Retornar_Cargo)
     #df['qualificacao'] = df['qualificacao'].str.title()
 
+    tamanho_total = len(df)
+
     for i in df.index:
-        if len(df['PRIMEIRO NOME'][i]) > 0 and len(df['ULTIMO NOME'][i]) > 0:
+
+        print( "Percentual: " + str(int(i / tamanho_total * 100)) + '%')
+
+        primeiro_nome = str(df['PRIMEIRO NOME'][i]).strip()
+        ultimo_nome = str(df['ULTIMO NOME'][i]).strip()
+        website = str(df['Website'][i]).strip()
+
+        #print(str(len(primeiro_nome)) + " - " + primeiro_nome)
+        #print(str(len(ultimo_nome)) + ' - ' + ultimo_nome)
+        #print(str(len(website)) + ' - ' + website)
+
+        if (len(primeiro_nome) > 0) and (len(ultimo_nome) > 0) and (len(website) > 0) and (primeiro_nome != 'nan') and (ultimo_nome != 'nan') and (website != 'nan'):
             df['EMAIL'][i] = consulta_email(df['PRIMEIRO NOME'][i].title(), df['ULTIMO NOME'][i].title(), df['Website'][i].lower())
 
     arquivo_export = 'Output ' + arquivo_import + '.xlsx'
