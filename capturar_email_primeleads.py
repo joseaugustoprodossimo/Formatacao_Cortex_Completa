@@ -31,12 +31,15 @@ if __name__ == '__main__':
 
     df = pd.read_excel(pasta_import + arquivo_import + ".xlsx")
 
-    #df['PRIMEIRO NOME'] = ''
-    #df['ULTIMO NOME'] = ''
+    df['PRIMEIRO NOME'] = ''
+    df['ULTIMO NOME'] = ''
 
-    #df['PRIMEIRO NOME'] = df['NOME'].str.split(' ', expand=True).get(0)
-    #df['ULTIMO NOME'] = df['NOME'].apply(funcoes.Retornar_Ultimo_Nome)
+    df.rename(columns={'NOME DO SÓCIO':'NOME'}, inplace=True)
+
+    df['PRIMEIRO NOME'] = df['NOME'].str.split(' ', expand=True).get(0)
+    df['ULTIMO NOME'] = df['NOME'].apply(funcoes.Retornar_Ultimo_Nome)
     df['EMAIL'] = ''
+    #df['CARGO'] = df['CARGO'].str.title()
     #df['Qualificação sócio'] = df['Qualificação sócio'].apply(funcoes.Retornar_Cargo)
     #df['qualificacao'] = df['qualificacao'].str.title()
 
